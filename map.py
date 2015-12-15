@@ -1,5 +1,7 @@
+from dungeon import Hero
 
 class Dungeon:
+
 
     def __init__(self, map):
         self.map = map
@@ -36,14 +38,34 @@ class Dungeon:
         # print(len(self.map))
         # print(len())
 
-    def move_hero(direction):
+    def move_hero(self, direction):
+        if my_hero.is_alive():
+            my_hero.mana_regeneration_rate += 2
+            if my_hero.mana_regeneration_rate > 100:
+                my_hero.mana_regeneration_rate = 100
+
         pass
+
+
 
 map = Dungeon.create_from_file("level1.txt")
 # map.print_map()
 # print(map.map)
-map.spawn(1)
-map.print_map()
-map.hero_location()
+# map.spawn(1)
+# map.print_map()
+# map.hero_location()
 
-
+my_hero = Hero()
+# print(my_hero.known_as())
+# print(my_hero.is_alive())
+my_hero.take_damage(99)
+print(my_hero.is_alive())
+# my_hero.take_damage(99)
+print(my_hero.is_alive())
+print(my_hero.health)
+my_hero.take_healing(40)
+print(my_hero.health)
+my_hero.take_healing(400)
+print(my_hero.mana_regeneration_rate)
+map.move_hero('dd')
+print(my_hero.mana_regeneration_rate)
