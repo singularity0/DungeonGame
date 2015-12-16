@@ -59,6 +59,8 @@ class Hero:
     def attack():
         pass
 
+    def some_stupid(self):
+        pass
 
 
 
