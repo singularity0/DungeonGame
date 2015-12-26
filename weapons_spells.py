@@ -18,5 +18,5 @@ class Spell:
 
 my_weapon = Weapon("Deadly axe", 30)
 # print(my_weapon.name)
-# my_spell = Spell("Iceball")
-# print(my_spell.damage)
+my_spell = Spell("Iceball")
+# print(my_spell.mana_cost)
