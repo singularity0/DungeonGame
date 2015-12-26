@@ -1,4 +1,5 @@
-# from map import *
+# from weapons_spells import *
+from enemies import *
 
 class Hero:
     """docstring for ClassName"""
@@ -62,7 +63,7 @@ class Hero:
 
 
 
-# my_hero = Hero()
+my_hero = Hero()
 # # print(my_hero.known_as())
 # # print(my_hero.is_alive())
 # my_hero.take_damage(99)
