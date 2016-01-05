@@ -1,4 +1,4 @@
-# from weapons_spells import *
+from weapons_spells import *
 from enemies import *
 
 class Hero:
@@ -13,6 +13,8 @@ class Hero:
         self.mana = mana
         self.mana_regeneration_rate = mana_regeneration_rate
         self.count_hero_moves = 0
+        self.weapon_used = None
+        self.spell_used = None
 
 
     def known_as(self):
@@ -52,15 +54,29 @@ class Hero:
                 my_hero.mana_regeneration_rate = 100
 
     def equip(self, weapon):
-        pass
+        self.weapon_used = weapon
 
-    def learn(spell):
-        pass
-
-    def attack():
-        pass
-
-
+    def learn(self, spell):
+        self.spell_used = spell
+    # attack method has not been tested
+    
+    def attack(self, by="weapon"):
+        no_weapon = "Weapon not found"
+        no_spell = "Spell not found"
+        if by == "weapon":
+            if self.weapon_used is None:
+                print(no_weapon)
+                return 0
+                
+            return self.weapon_used.get_damage()
+        if by == "spell":
+            if self.spell_used is None:
+                print(no_spell)
+                return 0
+            if self.can_cast():
+                self.mana -= self.spell_used.get_mana_cost()
+                return self.spell_used.get_damage()
+            return 0
 
 
 my_hero = Hero()
@@ -77,3 +93,13 @@ my_hero = Hero()
 # print(my_hero.health)
 
 # print(my_hero.count_hero_moves)
+
+print(my_hero.weapon_used)
+my_hero.equip(my_weapon)
+print(my_hero.weapon_used.name)
+
+# print(my_hero.spell_used)
+# my_hero.learn(my_spell)
+# print(my_hero.spell_used.name)
+#///////////////////////////////
+# my_hero.attack(by="weapon")
